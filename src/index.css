@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-background: hsl(210 20% 98%);
+  --color-foreground: hsl(222 47% 11%);
+  --color-primary: hsl(239 84% 67%);
+  --color-accent: hsl(239 84% 67%);
+  --color-muted-foreground: hsl(215 16% 47%);
+  --color-border: hsl(214 32% 91%);
+  --color-card: hsl(0 0% 100%);
+  --color-secondary: hsl(214 32% 91%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  * {
+    @apply rounded-none!;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans selection:bg-primary selection:text-white antialiased;
+  }
+}
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 2px hsl(222 47% 11%);
+  }
+  
+  .nav-underline {
+    @apply absolute bottom-0 left-0 h-[1px] bg-primary transition-all duration-300;
+  }
+
+  .grid-background {
+    background-image: linear-gradient(to right, hsl(214 32% 91% / 0.4) 1px, transparent 1px),
+                      linear-gradient(to bottom, hsl(214 32% 91% / 0.4) 1px, transparent 1px);
+    background-size: 100px 100px;
+  }
+}
